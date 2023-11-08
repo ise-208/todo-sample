@@ -1,7 +1,7 @@
 package com.example.todosample;
 
 public class TodoEntity {
-    Long Id;
+    Integer Id;
     String title;
     Boolean completed;
 }
