@@ -3,8 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
+
 </head>
 <body>
     <h1 th:text="${message}">Default Message</h1>
+    <div>
+        <script src="js/todo.js"></script>
+        <form id="todoForm">
+            <input type="text" id="todoInput" placeholder="Enter a new todo">
+            <button type="submit">Add Todo</button>
+        </form>
+    </div>
+    <div id="todoList">
+
+    </div>
 </body>
 </html>
