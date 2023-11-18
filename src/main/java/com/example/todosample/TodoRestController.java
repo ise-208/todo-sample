@@ -23,8 +23,8 @@ public class TodoRestController {
 
     @PostMapping("/api/todos")
     public ResponseEntity<?> addTodo(@RequestBody TodoEntity todoEntity) {
+        if (todoEntity.getId() == null)
+            return ResponseEntity.badRequest().body("Bad request. ");
         return ResponseEntity.ok().build();
     }
-
-
 }
