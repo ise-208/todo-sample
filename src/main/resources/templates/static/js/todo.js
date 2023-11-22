@@ -1,20 +1,16 @@
 
 document.getElementById('todoForm').addEventListener('submit', function(e) {
     e.preventDefault();
-    var todoText = document.getElementById('todoInput').value;
-    addTodo(todoText);
-});
-
-function todo() {
-    fetch('api/todos', {
+    var todoText = document.getElementById('title').value;
+    fetch('http://localhost:8080/api/todos', {
         method: 'POST',
         header: {
             'Content-Type': 'application/json',
         },
-        body:JSON.stringify({text:todoText})
+        body:JSON.stringify({title: title, completed: false})
     })
     .then(response => response.json())
     .then(data => {
-        console.log('data')
+        console.log(todoText)
     })
 }
