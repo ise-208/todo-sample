@@ -8,10 +8,11 @@
 <body>
     <h1 th:text="${message}">Default Message</h1>
     <div>
-        <script src="js/todo.js"></script>
-        <form id="todoForm">
-            <input type="text" id="title" name="title" placeholder="Enter a new todo">
-            <input type="submit" value="追加">
+        <form id="todoForm" th:action="@{/home/api}"  th:object="${todoEntity}" method="post">
+            <p>Id: <input type="text" th:field="*{id}" /></p>
+            <p>Title: <input type="text" th:field="*{title}" /></p>
+            <p>Completed: <input type="checkbox" th:field="*{completed}" /></p>
+            <p><input type="submit" value="Submit" /></p>
         </form>
         <script src="js/todo.js"></script>
     </div>

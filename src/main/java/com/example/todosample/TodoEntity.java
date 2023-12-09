@@ -28,4 +28,13 @@ public class TodoEntity {
     public void setCompleted(Boolean completed) {
         this.completed = completed;
     }
+
+    @Override
+    public String toString() {
+        return "TodoEntity{" +
+                "Id=" + Id +
+                ", title='" + title + '\'' +
+                ", completed=" + completed +
+                '}';
+    }
 }
