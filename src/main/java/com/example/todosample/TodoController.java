@@ -2,12 +2,12 @@ package com.example.todosample;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.Collection;
-import java.util.List;
 
 @Controller
 public class TodoController {
@@ -20,7 +20,7 @@ public class TodoController {
     @GetMapping("/home")
     public String home(Model model) {
         Collection<TodoEntity> todos = todoRepository.findAll();
-        model.addAttribute("todos",todos);
+        model.addAttribute("todos", todos);
         model.addAttribute("todoEntity", new TodoEntity());
         return "home";
     }
@@ -29,5 +29,11 @@ public class TodoController {
     public String addTodo(@ModelAttribute TodoEntity todoEntity) {
         todoRepository.insert(todoEntity);
         return "redirect:/home";
+    }
+
+    @DeleteMapping("/home")
+    public String deleteTodo() {
+        todoRepository.delete();
+        return "redirect:home";
     }
 }
