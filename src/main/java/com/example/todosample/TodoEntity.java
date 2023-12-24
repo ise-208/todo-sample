@@ -1,9 +1,9 @@
 package com.example.todosample;
 
 public class TodoEntity {
-    Integer Id;
-    String title;
-    Boolean completed;
+    private Integer Id;
+    private String title;
+    private Boolean completed;
 
     public Integer getId() {
         return Id;
